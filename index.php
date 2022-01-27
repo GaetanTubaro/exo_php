@@ -1,9 +1,7 @@
 <?php
-    require_once 'includes/variables.php';
-    require_once 'includes/function.php';
-    require_once 'includes/header.php';
-
+require_once 'includes/header.php';
 ?>
+
 <div class="d-flex">
 <?php 
     for ($i = 0; $i < 3; $i++){

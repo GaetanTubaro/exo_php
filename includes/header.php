@@ -1,3 +1,8 @@
+<?php
+    require_once 'includes/variables.php';
+    require_once 'includes/function.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
