@@ -1,3 +1,9 @@
+<?php
+    require_once 'includes/header.php';
+    require_once 'includes/variables.php';
+    require_once 'includes/function.php';
+?>
+
 <table>
     <tr>
         <th>Index</th>
@@ -12,3 +18,7 @@
     }
     ?>
 </table>
+
+<?php
+    require_once 'includes/footer.php';
+?>
