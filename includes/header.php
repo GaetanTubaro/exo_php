@@ -2,10 +2,9 @@
     require_once 'includes/variables.php';
     require_once 'includes/function.php';
     session_start();
-    if(isset($_POST['login'])){
-    $_SESSION['login'] = $_POST['login']; 
-}
-
+    if(isset($_POST['password']) && $_POST['password'] === $pass && isset($_POST['login']) && $_POST['login'] === $log){
+      $_SESSION['login'] = $_POST['login'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
