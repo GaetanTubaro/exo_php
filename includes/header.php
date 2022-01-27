@@ -27,17 +27,17 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="list.php">Liste des produits</a>
+          <a class="nav-link" href="?page=list">Liste des produits</a>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['login'])){?>
             <a class="nav-link"><?=$_SESSION['login']?></a>
         </li>    
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Déconnexion</a>
+          <a class="nav-link" href="?page=logout">Déconnexion</a>
         </li>
           <?php } else { ?>
-            <a class="nav-link" href="login.php">Connexion</a>
+            <a class="nav-link" href="?page=login">Connexion</a>
           <?php } ?>
         </li>
         <li class="nav-item">
