@@ -25,15 +25,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="?page=list">Liste des produits</a>
         </li>
         <li class="nav-item">
-          <?php if(isset($_SESSION['login'])){?>
-            <a class="nav-link"><?=$_SESSION['login']?></a>
-        </li>    
+          <a class="nav-link" href="?page=cart">Panier</a>
+        </li>
         <li class="nav-item">
+          <?php if(isset($_SESSION['login'])){?>
           <a class="nav-link" href="?page=logout">Déconnexion</a>
         </li>
           <?php } else { ?>
@@ -43,6 +43,9 @@
         <li class="nav-item">
         </li>
       </ul>
+      <?php if(isset($_SESSION['login'])){?>
+            <span class="nav-link"><?=$_SESSION['login']?></span>
+      <?php } ?>
     </div>
   </div>  
 </nav> 

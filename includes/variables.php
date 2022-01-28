@@ -1,9 +1,10 @@
 <?php 
+
     $myProduct = [
         ['name'  => "Bonnet en laine",
          'price' => 10,
           'desc' =>  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a leo diam." ,
-          'src'  => "https://maison-joseph.fr/7109-large_default/005a-bonnet-100-laine.jpg"
+          'src'  => "https://maison-joseph.fr/7109-large_default/005,a-bonnet-100-laine.jpg",
 ],
         ['name'  => "Bonnet en laine bio",
          'price' => 14,
@@ -23,4 +24,3 @@
 ];
 $log = "Gtubaro";
 $pass = "bob";
-?>
