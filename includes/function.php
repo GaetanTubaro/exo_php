@@ -32,5 +32,5 @@ function displayProductCard(array $product){
 </div>
 
 <?php 
-}
+};
 ?>

@@ -1,7 +1,10 @@
 <?php
     require_once 'includes/variables.php';
     require_once 'includes/function.php';
-
+    session_start();
+    if(isset($_POST['password']) && $_POST['password'] === $pass && isset($_POST['login']) && $_POST['login'] === $log){
+      $_SESSION['login'] = $_POST['login'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,3 +18,31 @@
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Bonnetton</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="?page=list">Liste des produits</a>
+        </li>
+        <li class="nav-item">
+          <?php if(isset($_SESSION['login'])){?>
+            <a class="nav-link"><?=$_SESSION['login']?></a>
+        </li>    
+        <li class="nav-item">
+          <a class="nav-link" href="?page=logout">Déconnexion</a>
+        </li>
+          <?php } else { ?>
+            <a class="nav-link" href="?page=login">Connexion</a>
+          <?php } ?>
+        </li>
+        <li class="nav-item">
+        </li>
+      </ul>
+    </div>
+  </div>  
+</nav> 
