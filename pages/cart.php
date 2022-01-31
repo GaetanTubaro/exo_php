@@ -19,6 +19,7 @@ if (isset($_GET['quantity']) && isset($_GET['key'])) {
             $cart[$key]--;
         }
     }
+    header('Location: ?page=cart');
     $_SESSION['cart'] = $cart;
 }
 ?>
