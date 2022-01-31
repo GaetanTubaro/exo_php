@@ -1,21 +1,8 @@
 <?php
 ob_start();
 require_once 'includes/header.php';
-if(isset($_GET['page'])){
-switch ($_GET['page']){
-    case 'login':
-        include 'pages/login.php';
-        break;
-    case 'list':
-        include 'pages/list.php';
-        break;
-    case 'logout':
-        include 'pages/logout.php';
-        break;
-    default: 
-        include 'pages/home.php';
-        break;
-}
+if(isset($_GET['page']) && file_exists('pages/' . $_GET['page'] . '.php')){
+    include 'pages/' . $_GET['page'] . '.php';
 } else {
     include 'pages/home.php';
 }
