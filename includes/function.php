@@ -43,7 +43,8 @@ function displayProductCard($key, Beanie $product)
 
 function test($value)
 {
-    if (!empty($value) && $value != ' ') {
+    $value = trim($value);
+    if (!empty($value)) {
         return $value;
     } else {
         return false;

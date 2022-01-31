@@ -7,8 +7,17 @@ class Beanie
     protected string $name;
     protected string $desc;
     protected string $src;
+    const AVAILABLE_SIZES = ['S', 'M', 'L', 'XL'];
+    const AVAILABLE_MATERIALS = ['Cachemire', 'Coton', 'Laine', 'Soie'];
 
-
+    public function getAvailableSizes()
+    {
+        return self::AVAILABLE_SIZES;
+    }
+    public function getAvailableMAterials()
+    {
+        return self::AVAILABLE_MATERIALS;
+    }
     /**
      * Get the value of size
      */
