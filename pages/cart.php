@@ -1,20 +1,31 @@
 <?php
-if (isset($_GET['quantity'])) {
-    if ($_GET['quantity'] == "more") {
-        $_SESSION['cart'][$_GET['key']]++;
-    } elseif ($_GET['quantity'] == "less") {
-        if ($_SESSION['cart'][$_GET['key']] == 1) {
-            unset($_SESSION['cart'][$_GET['key']]);
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+if (isset($_GET['quantity']) && isset($_GET['key'])) {
+    $cart = $_SESSION['cart'];
+    $quantity = $_GET['quantity'];
+    $key = $_GET['key'];
+
+    if ($quantity == "more") {
+        if (!isset($cart[$key])) {
+            $cart[$key] = 0;
+        }
+        $cart[$key]++;
+    } elseif ($quantity == "less") {
+        if ($cart[$key] <= 1) {
+            unset($cart[$key]);
         } else {
-            $_SESSION['cart'][$_GET['key']]--;
+            $cart[$key]--;
         }
     }
+    $_SESSION['cart'] = $cart;
 }
 ?>
 
 <table>
     <?php
-    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { ?>
+    if (!empty($_SESSION['cart'])) { ?>
         <tr>
             <th class="p-2">Nom</th>
             <th class="p-2">Prix</th>

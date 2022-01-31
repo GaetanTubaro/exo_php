@@ -17,7 +17,7 @@ function displayProduct($key, array $product)
         <?php } ?>
         <td><?= ttcPrice($product['price']) ?> €</td>
         <td><?= $product['desc'] ?></td>
-        <td><a type="button" class="btn btn-light" href="?page=list&key=<?= $key ?>">Ajouter au panier</a></td>
+        <td><a type="button" class="btn btn-light" href="?page=cart&key=<?= $key ?>&quantity=more">Ajouter au panier</a></td>
     </tr>
 <?php };
 
