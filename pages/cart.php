@@ -35,8 +35,8 @@ if (isset($_GET['quantity']) && isset($_GET['key'])) {
         <?php
         foreach ($_SESSION['cart'] as $key => $quantity) { ?>
             <tr>
-                <td class="p-2"><?= $myProduct[$key]['name']; ?></td>
-                <td class="p-2"><?= number_format($myProduct[$key]['price'] * $quantity, 2); ?> €</td>
+                <td class="p-2"><?= $myProduct[$key]->getName(); ?></td>
+                <td class="p-2"><?= number_format($myProduct[$key]->getPrice() * $quantity, 2); ?> €</td>
                 <td class="p-2"><?= $quantity; ?></td>
                 <td><a type="button" class="btn btn-light" href="?page=cart&key=<?= $key ?>&quantity=more">+</a></td>
                 <td><a type="button" class="btn btn-light" href="?page=cart&key=<?= $key ?>&quantity=less">-</a></td>
