@@ -2,19 +2,24 @@
     <select class="form-select w-25" aria-label="Default select example" name="size">
         <option value="" selected>Selectionner une matière</option>
         <?php foreach (Beanie::AVAILABLE_SIZES as $i => $size) { ?>
-            <option value="<?= $size ?>"><?= $size ?></option>
+            <option value="<?= $size ?>" <?php if (isset($_POST['size']) && $_POST['size'] == $size) echo "selected"; ?>><?= $size ?></option>
         <?php } ?>
     </select>
     <select class="form-select w-25 mx-1" aria-label="Default select example" name="material">
         <option value="" selected>Selectionner une taille</option>
         <?php foreach (Beanie::AVAILABLE_MATERIALS as $i => $material) { ?>
-            <option value="<?= $material ?>"><?= $material ?></option>
+            <option value="<?= $material ?>" <?php if (isset($_POST['material']) && $_POST['material'] == $material) echo "selected"; ?>><?= $material ?></option>
         <?php } ?>
     </select>
-    <input type="number" class="form-control w-25" placeholder="Prix minimum" name="min">
-    <input type="number" class="form-control w-25" placeholder="Prix maximum" name="max">
+    <input type="number" class="form-control w-25" placeholder="Prix minimum" name="min" <?php if (isset($_POST['min'])) { ?> <?= 'value="' ?><?= $_POST['min'] ?><?= '"' ?> <?php } ?>>
+    <input type="number" class="form-control w-25" placeholder="Prix maximum" name="max" <?php if (isset($_POST['max'])) { ?> <?= 'value="' ?><?= $_POST['max'] ?><?= '"' ?> <?php } ?>>
     <button class="btn btn-light mx-1" type="submit">Chercher</button>
 </form>
+
+
+
+
+
 
 
 <table>
