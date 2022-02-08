@@ -31,39 +31,36 @@
     </tr>
     <?php
     $products = $myProduct;
+    $filter = new BeanieFilter;
     if (!empty($_POST['size'])) {
-        $criteriaSize = $_POST['size'];
         $products = array_filter(
-            $myProduct,
-            function (Beanie $product) use ($criteriaSize) {
-                return $product->getSize() == $criteriaSize;
+            $products,
+            function (Beanie $product) use ($filter) {
+                return $product->getSize() == $filter->getSize();
             }
         );
     }
     if (!empty($_POST['material'])) {
-        $criteriaMaterial = $_POST['material'];
         $products = array_filter(
             $products,
-            function (Beanie $product) use ($criteriaMaterial) {
-                return $product->getMaterial() == $criteriaMaterial;
+            function (Beanie $product) use ($filter) {
+                return $product->getMaterial() == $filter->getMarterial();
             }
         );
     }
     if (!empty($_POST['min'])) {
-        $criteriaMin = $_POST['min'];
         $products = array_filter(
             $products,
-            function (Beanie $product) use ($criteriaMin) {
-                return $product->getPrice() >= $criteriaMin;
+            function (Beanie $product) use ($filter) {
+                return $product->getPrice() >= $filter->getMin();
             }
         );
     }
     if (!empty($_POST['max'])) {
-        $criteriaMax = $_POST['max'];
         $products = array_filter(
             $products,
-            function (Beanie $product) use ($criteriaMax) {
-                return $product->getPrice() <= $criteriaMax;
+            function (Beanie $product) use ($filter) {
+                return $product->getPrice() <= $filter->getMax();
             }
         );
     }

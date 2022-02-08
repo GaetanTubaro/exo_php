@@ -1,26 +1,13 @@
 <?php
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
-}
+$cart = new Cart();
 if (isset($_GET['quantity']) && isset($_GET['key'])) {
-    $cart = $_SESSION['cart'];
     $quantity = $_GET['quantity'];
-    $key = $_GET['key'];
-
     if ($quantity == "more") {
-        if (!isset($cart[$key])) {
-            $cart[$key] = 0;
-        }
-        $cart[$key]++;
+        $cart->add($_GET['key']);
     } elseif ($quantity == "less") {
-        if ($cart[$key] <= 1) {
-            unset($cart[$key]);
-        } else {
-            $cart[$key]--;
-        }
+        $cart->remove($_GET['key']);
     }
     header('Location: ?page=cart');
-    $_SESSION['cart'] = $cart;
 }
 ?>
 

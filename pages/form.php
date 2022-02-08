@@ -5,9 +5,8 @@ if (
     filter_var($_POST['subject'], FILTER_CALLBACK, array('options' => 'test')) &&
     filter_var($_POST['message'], FILTER_CALLBACK, array('options' => 'test'))
 ) {
-    echo "Clara avait raison.....";
+    $request = new Contact($_POST);
 }
-
 ?>
 
 <form class="w-25 mx-auto mt-2 d-flex flex-column" method="POST">
